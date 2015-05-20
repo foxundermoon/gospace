@@ -1,0 +1,36 @@
+package main
+
+import (
+	"bufio"
+	"fmt"
+	"log"
+	"net"
+	"net/http"
+	"net/rpc"
+	"os"
+	"rpc/server"
+)
+
+func main() {
+	arith := new(server.Arith)
+	rpc.Register(arith)
+	rpc.HandleHTTP()
+
+	l, e := net.Listen("tcp", ":1234")
+	if e != nil {
+		log.Panic("listen error :", e)
+	}
+	go http.Serve(l, nil)
+
+	fmt.Println("server....")
+
+	reader := bufio.NewReader(os.Stdin)
+	for {
+		data, _, _ := reader.ReadLine()
+		cmd := string(data)
+		if cmd == "stop" {
+			break
+		}
+	}
+	fmt.Println("stop..")
+}

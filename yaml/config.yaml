@@ -1,0 +1,9 @@
+server: localhost
+local: remote
+mysql: 
+    port: 3306
+    host: localhost
+    conf:
+        user: root
+        password: 123456
+
