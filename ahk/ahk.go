@@ -33,7 +33,7 @@ func ahkTest() {
 	log.Println("ret1:", ret, "   ret2:", ret2, "  last error:", err)
 	ret, ret2, err = f.Call()
 	log.Println("ret1:", ret, "   ret2:", ret2, "  last error:", err)
-	ret, ret2, err = add.Call(uintptr(unsafe.Pointer(syscall.StringToUTF16Ptr("Msgbox Hello World \n#z::Run www.qq.com")))) // {{{// }}}
+	ret, ret2, err = add.Call(uintptr(unsafe.Pointer(syscall.StringToUTF16Ptr("Msgbox Hello World \n#z::Run www.qq.com"))))
 	log.Println("ret1:", ret, "   ret2:", ret2, "  last error:", err)
 
 }
