@@ -3,6 +3,7 @@ package main
 import (
 	"crypto/sha256"
 	"encoding/hex"
+	"fmt"
 	"io"
 	"log"
 	"os"
@@ -10,11 +11,13 @@ import (
 )
 
 func main() {
-	r, err := sha256Sum("D:\\OneDriver\\develop\\system\\vagrant_1.7.2.msi")
+	r, err := sha256Sum("c:\\dev\\vim\\vim74\\gvim.exe")
 	if err != nil {
+		fmt.Println(err)
 	}
 
 	log.Println(r)
+	fmt.Println("hello")
 
 }
 
